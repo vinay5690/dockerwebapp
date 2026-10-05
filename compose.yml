@@ -6,7 +6,7 @@ services:
     ports:
       - "3306:3306"
     deploy:
-      replicas : 1
+      replicas: 1
     networks:
       - mynetwork
 
@@ -15,11 +15,10 @@ services:
     ports:
       - "1111:8080"
     deploy:
-      replicas : 3
-    depends_on:
-      - devopsdb
+      replicas: 3
     networks:
       - mynetwork
+
 networks:
   mynetwork:
     driver: overlay
