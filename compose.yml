@@ -21,3 +21,6 @@ services:
 networks:
   mynetwork:
     driver: overlay
+    name: mynetwork
+
+
