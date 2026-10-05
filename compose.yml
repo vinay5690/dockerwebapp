@@ -9,8 +9,6 @@ services:
     image: varadya143aradya/automation:app
     ports:
       - "1111:8080"
-    networks:
-      - mynetwork
     depends_on:
       - devopsdb
 
