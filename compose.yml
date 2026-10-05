@@ -1,10 +1,9 @@
 version: "3.9"
-
 services:
   devopsdb:
     image: varadya143aradya/automation:db
-    deploy:
-      replicas: 1
+    ports:
+     - "3306:3306"
     networks:
       - mynetwork
 
@@ -12,13 +11,10 @@ services:
     image: varadya143aradya/automation:app
     ports:
       - "1111:8080"
-    deploy:
-      replicas: 3
     networks:
       - mynetwork
     depends_on:
       - devopsdb
-
 networks:
   mynetwork:
     driver: overlay
