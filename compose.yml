@@ -4,8 +4,6 @@ services:
     image: varadya143aradya/automation:db
     ports:
      - "3306:3306"
-    networks:
-      - mynetwork
 
   application:
     image: varadya143aradya/automation:app
@@ -15,6 +13,4 @@ services:
       - mynetwork
     depends_on:
       - devopsdb
-networks:
-  mynetwork:
-    driver: overlay
+
