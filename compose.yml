@@ -3,10 +3,8 @@ version: "3.9"
 services:
   devopsdb:
     image: varadya143aradya/automation:db
-    ports:
-      - "3306:3306"
     deploy:
-      replicas: 3
+      replicas: 1
     networks:
       - mynetwork
 
