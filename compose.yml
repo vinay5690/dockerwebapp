@@ -3,7 +3,7 @@ services:
   devopsdb:
     image: varadya143aradya/automation:db
     deploy:
-      replicas: 1
+      replicas: 3
     networks:
       - mynetwork
 
