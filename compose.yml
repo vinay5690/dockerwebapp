@@ -5,8 +5,6 @@ services:
     image: varadya143aradya/automation:db
     ports:
       - "3306:3306"
-    deploy:
-      replicas: 1
     networks:
       - mynetwork
 
