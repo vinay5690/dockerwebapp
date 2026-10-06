@@ -1,9 +1,12 @@
 version: "3.9"
+
 services:
   devopsdb:
     image: varadya143aradya/automation:db
     deploy:
       replicas: 3
+      restart_policy:
+        condition: on-failure
     networks:
       - mynetwork
 
@@ -11,15 +14,18 @@ services:
     image: varadya143aradya/automation:app
     ports:
       - "1111:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://devopsdb:3306/accounts?useSSL=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
     deploy:
       replicas: 3
+      restart_policy:
+        condition: on-failure
     networks:
       - mynetwork
-    depends_on:
-      - devopsdb
 
 networks:
   mynetwork:
     driver: overlay
-
-
+    attachable: true
